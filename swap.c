@@ -1,7 +1,7 @@
 #include "monty.h"
 void swap(stack_t **stack, unsigned int line_number)
 {
-    stack_t *aux = NULL;
+    unsigned int aux;
 
     if (!*stack)
     {
@@ -13,14 +13,8 @@ void swap(stack_t **stack, unsigned int line_number)
         printf("L%u: can't swap, stack too short", line_number);
         exit(EXIT_FAILURE);
     }
-    *stack = (*stack)->next;
-    aux = (*stack)->next;
+    aux = (*stack)->n;
 
-    if (aux)
-        aux->prev = (*stack)->prev;
-
-    (*stack)->next = (*stack->prev);
-    (*stack)->prev->prev = *stack;
-    (*stack)->prev = NULL;
-    (*stack)->next->next = aux;
+    (*stack)->n = (*stack)->next->n;
+    (*stack)->next->n = aux;
 }
