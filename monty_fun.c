@@ -2,21 +2,22 @@
 
 void monty_pop(stack_t **stack, unsigned int line_number)
 {
-    stack_t *tmp = *stack;
-    if (*stack)
-    {
-        *stack = (*stack)->next;
+	stack_t *tmp = *stack;
+	(void)line_number;
+
 	if (*stack)
-		(*stack)->prev = NULL;
-        free(tmp);
-    }
-    else
-    {
-        printf("L%u: can't pint, stack empty", line_number);
-        exit(EXIT_FAILURE);
-    }
-    
-    (void)line_number;
+	{
+        	*stack = (*stack)->next;
+		if (*stack)
+			(*stack)->prev = NULL;
+		free(tmp);
+	}
+	else
+	{
+		printf("L%u: can't pint, stack empty", line_number);
+		exit(EXIT_FAILURE);
+	}
+
 }
 
 /**
@@ -26,8 +27,20 @@ void monty_pop(stack_t **stack, unsigned int line_number)
  */
 void monty_push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new_node = malloc(sizeof(*new_node));
+	stack_t *new_node;
+	/*char *token;
+	int value;*/
+	(void)line_number;
 
+	/* We have to check if token is empty or NaN
+	if (!(token = strtok(NULL, " ")))
+	{
+		fprintf(stderr, "L%d: usage: push integer", line_number);
+		exit(EXIT_FAILURE);
+	}
+	value = atoi(token);
+	*/
+	new_node = malloc(sizeof(*new_node));
 	if (!new_node)
 		{
 			printf("Error: malloc failed");
@@ -41,7 +54,7 @@ void monty_push(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = new_node;
 	*stack = new_node;
 
-	(void)line_number;
+	/*free(token);*/
 }
 
 void monty_swap(stack_t **stack, unsigned int line_number)
@@ -74,9 +87,7 @@ void monty_pint(stack_t **stack, unsigned int line_number)
 {
 
 	if (*stack)
-	{
 		printf("%d\n", (*stack)->n);
-	}
 	else
 	{
 		printf("L%u: can't pint, stack empty", line_number);
@@ -92,13 +103,13 @@ void monty_pint(stack_t **stack, unsigned int line_number)
 void monty_pall(stack_t **header, unsigned int line_number)
 {
 	stack_t *tmp = *header;
+	(void)line_number;
 
 	while (tmp)
 	{
 		printf("%d\n", tmp->n);
 		tmp = tmp->next;
 	}
-	(void)line_number;
 }
 void monty_add(stack_t **stack, unsigned int line_number)
 {
@@ -118,6 +129,6 @@ void monty_add(stack_t **stack, unsigned int line_number)
 }
 void monty_nop(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
+	(void)stack;
+	(void)line_number;
 }

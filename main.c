@@ -55,7 +55,6 @@ int read_files(FILE *f_desc, stack_t **header)
 void get_func(char *command, unsigned int line_num, stack_t **header)
 {
 	int idx;
-	char op[100];
 
 	instruction_t instruction_list[] = {
 		{"push", monty_push},
