@@ -8,18 +8,18 @@
  */
 int main(int argc, char *argv[])
 {
-	int f_desc = NULL;
+	int f_desc;
 
 	if (argc != 2)
 	{
-		fprint(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE)
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
 	}
 
-	f_desc = open(argc[1], R_ONLY);
+	f_desc = open(argv[1], O_RDONLY);
 	if (!f_desc)
 	{
-		fprint(stderr, "Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	read_file(f_desc);
@@ -31,6 +31,8 @@ int read_file(int f_desc)
 {
 	char buff[1024];
 
-	getline(buff, 1024, f_desc);
-	
+	while (getline(buff, f_desc) != -1)
+		printf("buffer: %s\n", buff);
+
+	return (0);
 }

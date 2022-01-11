@@ -2,7 +2,8 @@
 #define MONTY_HEADER
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <unistd.h>
+#include <fcntl.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -33,5 +34,8 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/* Aux Functions */
+int read_file(int f_desc);
 
+/* END Aux Functions */
 #endif
