@@ -2,21 +2,22 @@
 
 void monty_pop(stack_t **stack, unsigned int line_number)
 {
-    stack_t *tmp = *stack;
-    if (*stack)
-    {
-        *stack = (*stack)->next;
+	stack_t *tmp = *stack;
+	(void)line_number;
+
 	if (*stack)
-		(*stack)->prev = NULL;
-        free(tmp);
-    }
-    else
-    {
-        printf("L%u: can't pint, stack empty", line_number);
-        exit(EXIT_FAILURE);
-    }
-    
-    (void)line_number;
+	{
+        	*stack = (*stack)->next;
+		if (*stack)
+			(*stack)->prev = NULL;
+		free(tmp);
+	}
+	else
+	{
+		printf("L%u: can't pint, stack empty", line_number);
+		exit(EXIT_FAILURE);
+	}
+
 }
 
 /**
@@ -58,24 +59,23 @@ void monty_push(stack_t **stack, unsigned int line_number)
 
 void swap(stack_t **stack, unsigned int line_number)
 {
-    unsigned int aux;
+	unsigned int aux;
+	(void)line_number;
+	if (!*stack)
+	{
+		printf("L%u: can't swap, stack too short", line_number);
+		exit(EXIT_FAILURE);
+	}
+	if (!(*stack)->next)
+	{
+		printf("L%u: can't swap, stack too short", line_number);
+		exit(EXIT_FAILURE);
+	}
+	aux = (*stack)->n;
 
-    if (!*stack)
-    {
-        printf("L%u: can't swap, stack too short", line_number);
-        exit(EXIT_FAILURE);
-    }
-    if (!(*stack)->next)
-    {
-        printf("L%u: can't swap, stack too short", line_number);
-        exit(EXIT_FAILURE);
-    }
-    aux = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = aux;
 
-    (*stack)->n = (*stack)->next->n;
-    (*stack)->next->n = aux;
-
-    (void)line_number;
 }
 
 /**
@@ -87,9 +87,7 @@ void pint(const stack_t **stack, unsigned int line_number)
 {
 
 	if (*stack)
-	{
 		printf("%d\n", (*stack)->n);
-	}
 	else
 	{
 		printf("L%u: can't pint, stack empty", line_number);
@@ -105,16 +103,16 @@ void pint(const stack_t **stack, unsigned int line_number)
 void monty_pall(stack_t **header, unsigned int line_number)
 {
 	stack_t *tmp = *header;
+	(void)line_number;
 
 	while (tmp)
 	{
 		printf("%d\n", tmp->n);
 		tmp = tmp->next;
 	}
-	(void)line_number;
 }
 void nop(stack_t **stack, unsigned int line_number)
 {
-    (void)stack;
-    (void)line_number;
+	(void)stack;
+	(void)line_number;
 }
