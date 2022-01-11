@@ -39,6 +39,8 @@ int read_files(FILE *f_desc, stack_t **header)
 	{
 		if (buff[strlen(buff) - 1] == '\n')
 			buff[strlen(buff) - 1] = '\0';
+		if (len == 1)
+			exit(0);
 		command = strtok(buff, " ");
 		/*printf("command: %s %ld\n", command, strlen(command));*/
 		get_func(command, line_num, header);
@@ -59,10 +61,10 @@ void get_func(char *command, unsigned int line_num, stack_t **header)
 		{"push", monty_push},
 		{"pop", monty_pop},
 		{"pall", monty_pall},
-		{"swap", NULL},
-		{"pint", NULL},
-		{"nop", NULL},
-		{"add", NULL},
+		{"swap", monty_swap},
+		{"pint", monty_pint},
+		{"nop", monty_nop},
+		{"add", monty_add},
 		{NULL, NULL}
 
 	};

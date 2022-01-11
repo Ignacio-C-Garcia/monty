@@ -44,9 +44,9 @@ void monty_push(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 }
 
-void swap(stack_t **stack, unsigned int line_number)
+void monty_swap(stack_t **stack, unsigned int line_number)
 {
-    unsigned int aux;
+    unsigned int tmp;
 
     if (!*stack)
     {
@@ -58,12 +58,11 @@ void swap(stack_t **stack, unsigned int line_number)
         printf("L%u: can't swap, stack too short", line_number);
         exit(EXIT_FAILURE);
     }
-    aux = (*stack)->n;
+    tmp = (*stack)->n;
 
     (*stack)->n = (*stack)->next->n;
-    (*stack)->next->n = aux;
+    (*stack)->next->n = tmp;
 
-    (void)line_number;
 }
 
 /**
@@ -71,7 +70,7 @@ void swap(stack_t **stack, unsigned int line_number)
  * @stack: header of dll
  * @line_number: line number
  */
-void pint(const stack_t **stack, unsigned int line_number)
+void monty_pint(stack_t **stack, unsigned int line_number)
 {
 
 	if (*stack)
@@ -101,7 +100,23 @@ void monty_pall(stack_t **header, unsigned int line_number)
 	}
 	(void)line_number;
 }
-void nop(stack_t **stack, unsigned int line_number)
+void monty_add(stack_t **stack, unsigned int line_number)
+{
+    if (!*stack)
+    {
+        printf("L%u: can't add, stack too short", line_number);
+        exit(EXIT_FAILURE);
+    }
+    if (!(*stack)->next)
+    {
+        printf("L%u: can't add, stack too short", line_number);
+        exit(EXIT_FAILURE);
+    }
+
+    (*stack)->next->n += (*stack)->n;
+    monty_pop(stack, line_number);
+}
+void monty_nop(stack_t **stack, unsigned int line_number)
 {
     (void)stack;
     (void)line_number;
