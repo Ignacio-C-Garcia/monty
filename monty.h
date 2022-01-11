@@ -39,6 +39,7 @@ typedef struct instruction_s
 /* Aux Functions */
 int read_files(FILE *f_desc, stack_t **header);
 void get_func(char *command, unsigned int line_num, stack_t **header);
+int getline(char **buffer, size_t *n, FILE *f_desc);
 
 /* END Aux Functions */
 
