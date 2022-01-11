@@ -26,8 +26,20 @@ void monty_pop(stack_t **stack, unsigned int line_number)
  */
 void monty_push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new_node = malloc(sizeof(*new_node));
+	stack_t *new_node;
+	/*char *token;
+	int value;*/
+	(void)line_number;
 
+	/* We have to check if token is empty or NaN
+	if (!(token = strtok(NULL, " ")))
+	{
+		fprintf(stderr, "L%d: usage: push integer", line_number);
+		exit(EXIT_FAILURE);
+	}
+	value = atoi(token);
+	*/
+	new_node = malloc(sizeof(*new_node));
 	if (!new_node)
 		{
 			printf("Error: malloc failed");
@@ -41,7 +53,7 @@ void monty_push(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = new_node;
 	*stack = new_node;
 
-	(void)line_number;
+	/*free(token);*/
 }
 
 void swap(stack_t **stack, unsigned int line_number)
