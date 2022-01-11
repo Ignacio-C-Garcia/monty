@@ -37,18 +37,20 @@ typedef struct instruction_s
 
 
 /* Aux Functions */
-int read_file(int f_desc);
+int read_files(FILE *f_desc, stack_t **header);
+void get_func(char *command, unsigned int line_num, stack_t **header);
 
 /* END Aux Functions */
 
 /* Monty Functions */
-void add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void push(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
+void monty_add(stack_t **stack, unsigned int line_number);
+void monty_nop(stack_t **stack, unsigned int line_number);
+void monty_pall(stack_t **stack, unsigned int line_number);
+void monty_pint(stack_t **stack, unsigned int line_number);
+void monty_pop(stack_t **stack, unsigned int line_number);
+void monty_push(stack_t **stack, unsigned int line_number);
+void monty_swap(stack_t **stack, unsigned int line_number);
 
 /* END Monty Functions*/
+
 #endif
