@@ -21,7 +21,7 @@ void monty_pint(stack_t **stack, unsigned int line_number)
 		printf("%d\n", (*stack)->n);
 	else
 	{
-	printf("L%u: can't pint, stack empty", line_number);
+	fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 	exit(EXIT_FAILURE);
 	}
 }

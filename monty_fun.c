@@ -7,7 +7,6 @@
 void monty_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;
-	(void)line_number;
 
 	if (*stack)
 	{
@@ -18,7 +17,7 @@ void monty_pop(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		printf("L%u: can't pint, stack empty", line_number);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
@@ -54,7 +53,7 @@ void monty_push(stack_t **stack, unsigned int line_number)
 	new_node = malloc(sizeof(*new_node));
 	if (!new_node)
 	{
-		printf("Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	value = atoi(token);
@@ -80,12 +79,12 @@ void monty_swap(stack_t **stack, unsigned int line_number)
 
 	if (!*stack)
 	{
-		printf("L%u: can't swap, stack too short", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if (!(*stack)->next)
 	{
-		printf("L%u: can't swap, stack too short", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	tmp = (*stack)->n;
@@ -120,12 +119,12 @@ void monty_add(stack_t **stack, unsigned int line_number)
 {
 	if (!*stack)
 	{
-		printf("L%u: can't add, stack too short", line_number);
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	if (!(*stack)->next)
 	{
-		printf("L%u: can't add, stack too short", line_number);
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
