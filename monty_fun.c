@@ -7,7 +7,7 @@ void monty_pop(stack_t **stack, unsigned int line_number)
 
 	if (*stack)
 	{
-        	*stack = (*stack)->next;
+	*stack = (*stack)->next;
 		if (*stack)
 			(*stack)->prev = NULL;
 		free(tmp);
@@ -59,22 +59,22 @@ void monty_push(stack_t **stack, unsigned int line_number)
 
 void monty_swap(stack_t **stack, unsigned int line_number)
 {
-    unsigned int tmp;
+unsigned int tmp;
 
-    if (!*stack)
-    {
-        printf("L%u: can't swap, stack too short", line_number);
-        exit(EXIT_FAILURE);
-    }
-    if (!(*stack)->next)
-    {
-        printf("L%u: can't swap, stack too short", line_number);
-        exit(EXIT_FAILURE);
-    }
-    tmp = (*stack)->n;
+if (!*stack)
+{
+printf("L%u: can't swap, stack too short", line_number);
+exit(EXIT_FAILURE);
+}
+if (!(*stack)->next)
+{
+printf("L%u: can't swap, stack too short", line_number);
+exit(EXIT_FAILURE);
+}
+tmp = (*stack)->n;
 
-    (*stack)->n = (*stack)->next->n;
-    (*stack)->next->n = tmp;
+(*stack)->n = (*stack)->next->n;
+(*stack)->next->n = tmp;
 
 }
 
@@ -113,19 +113,19 @@ void monty_pall(stack_t **header, unsigned int line_number)
 }
 void monty_add(stack_t **stack, unsigned int line_number)
 {
-    if (!*stack)
-    {
-        printf("L%u: can't add, stack too short", line_number);
-        exit(EXIT_FAILURE);
-    }
-    if (!(*stack)->next)
-    {
-        printf("L%u: can't add, stack too short", line_number);
-        exit(EXIT_FAILURE);
-    }
+if (!*stack)
+{
+printf("L%u: can't add, stack too short", line_number);
+exit(EXIT_FAILURE);
+}
+if (!(*stack)->next)
+{
+printf("L%u: can't add, stack too short", line_number);
+exit(EXIT_FAILURE);
+}
 
-    (*stack)->next->n += (*stack)->n;
-    monty_pop(stack, line_number);
+(*stack)->next->n += (*stack)->n;
+monty_pop(stack, line_number);
 }
 void monty_nop(stack_t **stack, unsigned int line_number)
 {
