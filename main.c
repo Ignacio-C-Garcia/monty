@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 	read_files(f_desc, &header);
 
 	fclose(f_desc);
+	free_stack(header);
 	return (0);
 }
 /**
@@ -36,7 +37,7 @@ int main(int argc, char *argv[])
  */
 int read_files(FILE *f_desc, stack_t **header)
 {
-	char *buff = NULL, *command;
+	char *buff, *command;
 	size_t len = 1024;
 	unsigned int line_num = 1;
 
@@ -50,9 +51,11 @@ int read_files(FILE *f_desc, stack_t **header)
 		/*printf("command: %s %ld\n", command, strlen(command));*/
 		get_func(command, line_num, header);
 		line_num++;
+
 		free(buff);
 		buff = NULL;
 	}
+	free(buff);
 
 	return (0);
 }
