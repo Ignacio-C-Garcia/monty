@@ -7,7 +7,6 @@
 void monty_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp = *stack;
-	(void)line_number;
 
 	if (*stack)
 	{
@@ -18,7 +17,7 @@ void monty_pop(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
