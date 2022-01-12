@@ -25,3 +25,4 @@ void monty_pint(stack_t **stack, unsigned int line_number)
 	exit(EXIT_FAILURE);
 	}
 }
+

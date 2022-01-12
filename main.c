@@ -94,3 +94,4 @@ void get_func(char *command, unsigned int line_num, stack_t **header)
 		exit(EXIT_FAILURE);
 	}
 }
+
