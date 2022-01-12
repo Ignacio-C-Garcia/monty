@@ -38,7 +38,7 @@ int read_files(FILE *f_desc, stack_t **header)
 {
 	char *buff = NULL, *command;
 	size_t len = 1024;
-	unsigned int line_num = 0;
+	unsigned int line_num = 1;
 
 	while (getline(&buff, &len, f_desc) != -1)
 	{
