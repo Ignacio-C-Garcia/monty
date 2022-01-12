@@ -28,7 +28,12 @@ int main(int argc, char *argv[])
 	fclose(f_desc);
 	return (0);
 }
-
+/**
+ * read_files - read each line of file and call get_func
+ * @f_desc: file descriptor
+ * @header: header of dll
+ * Return: 0 on success
+ */
 int read_files(FILE *f_desc, stack_t **header)
 {
 	char *buff = NULL, *command;
@@ -51,7 +56,12 @@ int read_files(FILE *f_desc, stack_t **header)
 
 	return (0);
 }
-
+/**
+ * get_func - call a function if the line is a command
+ * @command: firs word of the line
+ * @line_num: line number of de file
+ * @header: header of dll
+ */
 void get_func(char *command, unsigned int line_num, stack_t **header)
 {
 	int idx;
