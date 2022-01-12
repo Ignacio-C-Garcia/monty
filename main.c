@@ -56,7 +56,7 @@ int read_files(FILE *f_desc, stack_t **header)
 		buff = NULL;
 	}
 	free(buff);
-	
+
 	return (0);
 }
 /**
