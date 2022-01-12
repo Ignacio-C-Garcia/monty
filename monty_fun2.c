@@ -1,3 +1,4 @@
+#include "monty.h"
 /**
  * monty_nop - The opcode nop doesn’t do anything.
  * @stack: header of dll
