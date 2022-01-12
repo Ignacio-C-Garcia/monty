@@ -40,6 +40,7 @@ void (*f)(stack_t **stack, unsigned int line_number);
 int read_files(FILE *f_desc, stack_t **header);
 void get_func(char *command, unsigned int line_num, stack_t **header);
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+void free_stack(stack_t *head);
 
 /* END Aux Functions */
 

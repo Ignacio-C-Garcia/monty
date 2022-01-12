@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 	read_files(f_desc, &header);
 
 	fclose(f_desc);
+	free_stack(header);
 	return (0);
 }
 /**
@@ -54,7 +55,8 @@ int read_files(FILE *f_desc, stack_t **header)
 		free(buff);
 		buff = NULL;
 	}
-
+	free(buff);
+	
 	return (0);
 }
 /**
