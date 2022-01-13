@@ -25,3 +25,54 @@ void monty_pint(stack_t **stack, unsigned int line_number)
 	exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * monty_sub - sub value of first 2 nodes of dll
+ * @stack: header of the stack
+ * @line_number: value number of node
+ */
+void monty_sub(stack_t **stack, unsigned int line_number)
+{
+	if (!*stack || !(*stack)->next)
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	(*stack)->next->n -= (*stack)->n;
+	monty_pop(stack, line_number);
+}
+
+/**
+ * monty_div - divides value of first 2 nodes of dll
+ * @stack: header of the stack
+ * @line_number: value number of node
+ */
+void monty_div(stack_t **stack, unsigned int line_number)
+{
+	if (!*stack || !(*stack)->next)
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	(*stack)->next->n /= (*stack)->n;
+	monty_pop(stack, line_number);
+}
+
+/**
+ * monty_mul - multiplies value of first 2 nodes of dll
+ * @stack: header of the stack
+ * @line_number: value number of node
+ */
+void monty_mul(stack_t **stack, unsigned int line_number)
+{
+	if (!*stack || !(*stack)->next)
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+
+	(*stack)->next->n *= (*stack)->n;
+	monty_pop(stack, line_number);
+}
