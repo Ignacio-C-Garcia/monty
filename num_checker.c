@@ -12,12 +12,14 @@ void num_checker(char *token, stack_t **stack, unsigned int line_number)
 	if (!token)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	if (token[0] == '-')
 		i++;
 	if (token[i] == '\0')
 	{
+		free_stack(*stack);
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
@@ -30,6 +32,7 @@ void num_checker(char *token, stack_t **stack, unsigned int line_number)
 		}
 		else
 		{
+			free_stack(*stack);
 			fprintf(stderr, "L%u: usage: push integer", line_number);
 			exit(-1);
 		}

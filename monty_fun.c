@@ -32,7 +32,6 @@ void monty_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
 	char *token;
-	int value;
 	(void)line_number;
 
 	token = strtok(NULL, " ");
