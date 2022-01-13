@@ -77,6 +77,10 @@ void get_func(char *command, unsigned int line_num, stack_t **header)
 		{"pint", monty_pint},
 		{"nop", monty_nop},
 		{"add", monty_add},
+		{"sub", monty_sub},
+		{"div", monty_div},
+		{"mul", monty_mul},
+		{"mod", monty_mod},
 		{NULL, NULL}
 
 	};
