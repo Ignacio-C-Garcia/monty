@@ -46,10 +46,7 @@ int read_files(FILE *f_desc, stack_t **header)
 		if (buff[strlen(buff) - 1] == '\n')
 			buff[strlen(buff) - 1] = '\0';
 		if (len == 1)
-		{	fclose(f_desc);
-			free_stack(*header);
-			exit(0);
-		}
+			continue;
 		command = strtok(buff, " ");
 		if (!command)
 			continue;
