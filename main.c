@@ -85,6 +85,7 @@ void get_func(char *command, unsigned int line_num, stack_t **header)
 		{"mul", monty_mul},
 		{"mod", monty_mod},
 		{"pchar", monty_pchar},
+		{"pstr", monty_pstr},
 		{NULL, NULL}
 
 	};
