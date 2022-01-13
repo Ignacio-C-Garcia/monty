@@ -57,6 +57,7 @@ void monty_pint(stack_t **stack, unsigned int line_number);
 void monty_pop(stack_t **stack, unsigned int line_number);
 void monty_push(stack_t **stack, unsigned int line_number);
 void monty_swap(stack_t **stack, unsigned int line_number);
+void monty_pchar(stack_t **stack, unsigned int line_number);
 
 /* END Monty Functions*/
 
