@@ -52,7 +52,7 @@ int read_files(FILE *f_desc, stack_t **header)
 		}
 		command = strtok(buff, " ");
 		if (!command)
-			break;
+			continue;
 		if (command[0] == '#')
 		{
 			free(buff);
