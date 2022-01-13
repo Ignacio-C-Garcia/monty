@@ -39,10 +39,11 @@ int read_files(FILE *f_desc, stack_t **header)
 {
 	char *buff, *command;
 	size_t len = 1024;
-	unsigned int line_num = 1;
+	unsigned int line_num = 0;
 
 	while (getline(&buff, &len, f_desc) != -1)
 	{
+		line_num++;
 		if (buff[strlen(buff) - 1] == '\n')
 			buff[strlen(buff) - 1] = '\0';
 
@@ -60,8 +61,6 @@ int read_files(FILE *f_desc, stack_t **header)
 			continue;
 		}
 		get_func(command, line_num, header);
-		line_num++;
-
 		free(buff);
 		buff = NULL;
 	}
