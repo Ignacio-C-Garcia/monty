@@ -85,7 +85,6 @@ void get_func(char *command, unsigned int line_num, stack_t **header)
 	{
 		if (strncmp(command, instruction_list[idx].opcode, strlen(command)) == 0)
 		{
-			/*printf("execute: %s\n", command);*/
 			instruction_list[idx].f(header, line_num);
 			break;
 		}

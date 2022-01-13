@@ -117,12 +117,7 @@ void monty_pall(stack_t **header, unsigned int line_number)
  */
 void monty_add(stack_t **stack, unsigned int line_number)
 {
-	if (!*stack)
-	{
-		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
-	}
-	if (!(*stack)->next)
+	if (!*stack || !(*stack)->next)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
@@ -131,4 +126,3 @@ void monty_add(stack_t **stack, unsigned int line_number)
 	(*stack)->next->n += (*stack)->n;
 	monty_pop(stack, line_number);
 }
-
