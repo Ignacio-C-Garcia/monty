@@ -81,10 +81,13 @@ void monty_rotl(stack_t **stack, unsigned int line_number)
 
 	while (tail->next)
 		tail = tail->next;
+	if (head != tail)
+	{
+		if (head->next)
+			head->next->prev = NULL;
+		head->next = NULL;
 
-	head->next->prev = NULL;
-	head->next = NULL;
-
-	head->prev = tail;
-	tail->next = head;
+		head->prev = tail;
+		tail->next = head;
+	}
 }
