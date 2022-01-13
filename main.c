@@ -50,7 +50,8 @@ int read_files(FILE *f_desc, stack_t **header)
 		command = strtok(buff, " ");
 		if (!command)
 			break;
-		/*printf("command: %s %ld\n", command, strlen(command));*/
+		if (command[0] == '#')
+			continue;
 		get_func(command, line_num, header);
 		line_num++;
 
