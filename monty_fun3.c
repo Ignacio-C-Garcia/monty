@@ -24,7 +24,7 @@ void monty_mod(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * monty_pchar - prints the char at the top of the stack, followed by a new line
+ * monty_pchar - prints the char at the top of the stack, followed by a \n
  * @stack: header of the stack
  * @line_number: value number of node
  */
@@ -66,7 +66,11 @@ void monty_pstr(stack_t **stack, unsigned int line_number)
 	}
 	printf("\n");
 }
-
+/**
+ * monty_rotl - do something
+ * @stack: header of dll
+ * @line_number: line number
+ */
 void monty_rotl(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tail, *head;
@@ -77,28 +81,10 @@ void monty_rotl(stack_t **stack, unsigned int line_number)
 
 	while (tail->next)
 		tail = tail->next;
-	
+
 	head->next->prev = NULL;
 	head->next = NULL;
 
 	head->prev = tail;
 	tail->next = head;
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
