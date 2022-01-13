@@ -33,8 +33,8 @@ void num_checker(char *token, stack_t **stack, unsigned int line_number)
 		else
 		{
 			free_stack(*stack);
-			fprintf(stderr, "L%u: usage: push integer", line_number);
-			exit(-1);
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
 		}
 	}
 }
