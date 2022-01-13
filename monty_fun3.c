@@ -42,3 +42,18 @@ void monty_pchar(stack_t **stack, unsigned int line_number)
 	putchar((*stack)->n);
 	putchar('\n');
 }
+void monty_pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = *header;
+	(void)line_number;
+	while (tmp)
+	{
+		if (tmp->n < 127 || tmp->n > 0)
+			printf("%c\n", tmp->n);
+		else
+			break;
+		tmp = tmp->next;
+	}
+	if (!tmp)
+		print('\n');
+}
