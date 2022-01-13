@@ -46,12 +46,19 @@ int read_files(FILE *f_desc, stack_t **header)
 		if (buff[strlen(buff) - 1] == '\n')
 			buff[strlen(buff) - 1] = '\0';
 		if (len == 1)
+		{	fclose(f_desc);
+			free_stack(*header);
 			exit(0);
+		}
 		command = strtok(buff, " ");
 		if (!command)
 			break;
 		if (command[0] == '#')
+		{
+			free(buff);
+			buff = NULL;
 			continue;
+		}
 		get_func(command, line_num, header);
 		line_num++;
 
@@ -59,7 +66,7 @@ int read_files(FILE *f_desc, stack_t **header)
 		buff = NULL;
 	}
 	free(buff);
-
+	command = NULL;
 	return (0);
 }
 /**
@@ -86,6 +93,7 @@ void get_func(char *command, unsigned int line_num, stack_t **header)
 		{"mod", monty_mod},
 		{"pchar", monty_pchar},
 		{"pstr", monty_pstr},
+		{"rotl", monty_rotl},
 		{NULL, NULL}
 
 	};
@@ -102,6 +110,8 @@ void get_func(char *command, unsigned int line_num, stack_t **header)
 	if (instruction_list[idx].opcode == NULL)
 	{
 		fprintf(stderr, "L%u: unknown instruction %s\n", line_num, command);
+		free_stack(*header);
+		command = NULL;
 		exit(EXIT_FAILURE);
 	}
 }

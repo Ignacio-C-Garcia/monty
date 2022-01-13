@@ -39,6 +39,7 @@ void monty_push(stack_t **stack, unsigned int line_number)
 	if (!token || ((token[0] < '0' || token[0] > '9') && token[0] != '-'))
 	{
 		fprintf(stderr, "L%d: usage: push integer", line_number);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	/*
@@ -54,6 +55,7 @@ void monty_push(stack_t **stack, unsigned int line_number)
 	if (!new_node)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	value = atoi(token);
@@ -85,6 +87,7 @@ void monty_swap(stack_t **stack, unsigned int line_number)
 	if (!(*stack)->next)
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	tmp = (*stack)->n;
@@ -120,6 +123,7 @@ void monty_add(stack_t **stack, unsigned int line_number)
 	if (!*stack || !(*stack)->next)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n", line_number);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 
