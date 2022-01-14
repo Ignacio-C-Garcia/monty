@@ -116,6 +116,7 @@ void monty_rotr(stack_t **stack, unsigned int line_number)
 			last_node->prev = NULL;
 			last_node->next = *stack;
 			(*stack)->prev = last_node;
+			(*stack) = last_node;
 		}
 	}
 	(void)line_number;
