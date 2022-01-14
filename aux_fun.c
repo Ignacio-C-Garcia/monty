@@ -28,9 +28,6 @@ void add_stack(stack_t **head, const int n, unsigned int line_number)
 {
 	stack_t *new_node = NULL, *tmp_node = *head;
 
-	if (!head)
-		exit(EXIT_FAILURE);
-
 	new_node = malloc(sizeof(*new_node));
 	if (!new_node)
 	{
@@ -59,9 +56,6 @@ void add_stack(stack_t **head, const int n, unsigned int line_number)
 void add_stack_end(stack_t **head, const int n, unsigned int line_number)
 {
 	stack_t *new_node = NULL, *tmp_node = *head;
-
-	if (!head)
-		exit(EXIT_FAILURE);
 
 	new_node = malloc(sizeof(*new_node));
 	if (!new_node)
