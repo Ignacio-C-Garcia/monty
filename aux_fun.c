@@ -53,8 +53,31 @@ void add_stack(stack_t **head, const int n, unsigned int line_number)
  * @line_number: number of line of the instruction
  * Return: head of the list
  */
-void add_stack_end(stack_t **head, const int n, unsigned int line_number)
+void add_stack_end(stack_t **head, const int num, unsigned int line_number)
 {
+
+	stack_t *new, *temp;
+
+	new = malloc(sizeof(stack_t));
+	if (!new)
+	{
+		fprintf(stderr, "L%u: usage: can't malloc\n", line_number);
+		exit(EXIT_FAILURE);
+	}
+	new->n = num;
+	new->next = NULL;
+	temp = *head;
+
+	if (temp != NULL)
+	{
+		while (temp->next != NULL)
+			temp = temp->next;
+		temp->next = new;
+	}
+	else
+		*head = new;
+	new->prev = temp;
+	/*
 	stack_t *new_node = NULL, *tmp_node = *head;
 
 	new_node = malloc(sizeof(*new_node));
@@ -79,6 +102,8 @@ void add_stack_end(stack_t **head, const int n, unsigned int line_number)
 	else
 		*head = new_node;
 
+
+*/
 }
 
 /**
