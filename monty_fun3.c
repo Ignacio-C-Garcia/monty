@@ -118,4 +118,5 @@ void monty_rotr(stack_t **stack, unsigned int line_number)
 			(*stack)->prev = last_node;
 		}
 	}
+	(void)line_number;
 }
