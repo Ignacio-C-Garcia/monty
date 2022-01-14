@@ -96,6 +96,7 @@ void get_func(char *command, unsigned int line_num, stack_t **header)
 		{"pchar", monty_pchar},
 		{"pstr", monty_pstr},
 		{"rotl", monty_rotl},
+		{"rotr", monty_rotr},
 		{"stack", monty_stack_mode},
 		{"queue", monty_queue_mode},
 		{NULL, NULL}

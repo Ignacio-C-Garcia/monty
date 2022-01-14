@@ -96,6 +96,11 @@ void monty_rotl(stack_t **stack, unsigned int line_number)
 		}
 	}
 }
+/**
+ * monty_rotr - do something
+ * @stack: header of dll
+ * @line_number: line number
+ */
 void monty_rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *last_node = *stack;
@@ -104,7 +109,7 @@ void monty_rotr(stack_t **stack, unsigned int line_number)
 	{
 		while (last_node->next)
 			last_node = last_node->next;
-		if (last_node != stack)
+		if (last_node != *stack)
 		{
 			last_node->prev->next = NULL;
 			last_node->prev = NULL;
