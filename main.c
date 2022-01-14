@@ -1,4 +1,5 @@
 #include "monty.h"
+int stack_mode;
 /**
  * main - main function of monty interpreter
  *
@@ -10,6 +11,8 @@ int main(int argc, char *argv[])
 {
 	FILE *f_desc;
 	stack_t *header = NULL;
+
+	stack_mode = 1;
 
 	if (argc != 2)
 	{
@@ -93,6 +96,8 @@ void get_func(char *command, unsigned int line_num, stack_t **header)
 		{"pchar", monty_pchar},
 		{"pstr", monty_pstr},
 		{"rotl", monty_rotl},
+		{"stack", monty_stack_mode},
+		{"queue", monty_queue_mode},
 		{NULL, NULL}
 
 	};

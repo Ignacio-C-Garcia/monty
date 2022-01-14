@@ -30,28 +30,17 @@ void monty_pop(stack_t **stack, unsigned int line_number)
  */
 void monty_push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new_node;
 	char *token;
 	(void)line_number;
 
 	token = strtok(NULL, " ");
 	num_checker(token, stack, line_number);
 
-	new_node = malloc(sizeof(*new_node));
-	if (!new_node)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		free_stack(*stack);
-		exit(EXIT_FAILURE);
-	}
+	if (stack_mode == 1)
+		add_stack(stack, atoi(token), line_number);
 
-	new_node->n = atoi(token);
-	new_node->prev = NULL;
-	new_node->next = *stack;
-	if (*stack)
-		(*stack)->prev = new_node;
-	*stack = new_node;
-
+	if (stack_mode == 0)
+		add_stack_end(stack, atoi(token), line_number);
 }
 /**
  * monty_swap - swap two frist nodes of dll

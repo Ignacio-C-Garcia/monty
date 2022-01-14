@@ -42,6 +42,8 @@ void get_func(char *command, unsigned int line_num, stack_t **header);
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 void free_stack(stack_t *head);
 void num_checker(char *token, stack_t **stack, unsigned int line_number);
+void add_stack(stack_t **head, const int n, unsigned int line_number);
+void add_stack_end(stack_t **head, const int n, unsigned int line_number);
 /* END Aux Functions */
 
 /* Monty Functions */
@@ -60,8 +62,12 @@ void monty_swap(stack_t **stack, unsigned int line_number);
 void monty_pchar(stack_t **stack, unsigned int line_number);
 void monty_pstr(stack_t **stack, unsigned int line_number);
 void monty_rotl(stack_t **stack, unsigned int line_number);
+void monty_stack_mode(stack_t **stack, unsigned int line_number);
+void monty_queue_mode(stack_t **stack, unsigned int line_number);
 
 /* END Monty Functions*/
 
+/* Global Variable */
+extern int stack_mode;
 #endif
 
